@@ -1,0 +1,63 @@
+﻿/*body {
+    background-color: #509;
+    background-image: url('img1.jpg');
+}*/
+
+Label, input {
+    padding: 5px 5px 5px 10px;
+}
+
+/*H1, label {
+    color: #fff;
+}*/
+
+input {
+    outline: none;
+    Background-color: aliceblue;
+    font-style: italic;
+    Color: #f0f;
+    Border: none;
+    border-bottom: 1px solid #f0f;
+    animation: rotate 5s ease-in-out 0.5s alternate, move 5s linear 2s;
+}
+
+    input:focus {
+        border-bottom: 4px solid #f00;
+        font-size: 20px;
+        transition: .4s ease-out;
+        transition-delay: 0.5s;
+    }
+
+/*H1, Form {
+    text-align: center;
+}*/
+
+input[type="submit"] {
+    Background-color: aliceblue;
+    Border: none;
+    color: black;
+    margin-top: 20px;
+}
+
+@keyframes rotate {
+
+    20% {
+        transform: rotateY(30deg);
+        letter-spacing: 15px;
+    }
+
+    40% {
+        transform: rotateY(60deg);
+        letter-spacing: 10px;
+    }
+
+    60% {
+        transform: rotateY(90deg);
+        letter-spacing: 5px;
+    }
+
+    80% {
+        transform: rotateY(180deg);
+        letter-spacing: 3px;
+    }
+}

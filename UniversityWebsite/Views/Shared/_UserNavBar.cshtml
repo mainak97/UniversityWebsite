@@ -1,0 +1,23 @@
+﻿<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="/Home/Index">
+            <img src="~/Content/Images/external-content.duckduckgo.com.png" width="50" height="50" class="d-inline-block align-top" alt="" />
+        </a>
+        <a class="navbar-brand" href="/Home/Index">University</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto text-center">
+                <li class="nav-item">
+                    <form method="post" action="/Account/LogOff">
+                        @Html.AntiForgeryToken()
+                        <a class="nav-link" onclick="this.parentNode.submit(); return false;" style="cursor:pointer;"><text class="text-color-primary">Log Off</text></a>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+

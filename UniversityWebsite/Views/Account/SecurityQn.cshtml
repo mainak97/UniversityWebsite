@@ -1,0 +1,35 @@
+﻿@using UniversityWebsite.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log In";
+}
+<head>
+    <titile>Login In</titile>
+    <link href="~/Content/Security.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form action="">
+            <div class="user-box">
+                @Html.TextBoxFor(m => m.Email)
+                @Html.LabelFor(m => m.Email)
+            </div>
+            <div class="user-box">
+                <input type="password">
+                <label>Password</label>
+            </div>
+
+
+            <a href="">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Save
+            </a>
+        </form>
+    </div>
+
+</body>

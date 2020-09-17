@@ -1,0 +1,92 @@
+﻿@model UniversityWebsite.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+<link href="~/Content/Register.css" rel="stylesheet" />
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-12">
+            <h4 class="ml-3 mb-5">Create a new account.</h4>
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                if (ViewBag.Success!=null)
+                {
+                    <div class="alert alert-success">Your details have been submitted successfully!</div>
+                }
+                <div class="form-row mt-3">
+                    <div class="col">
+                        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-12 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col">
+                        @Html.LabelFor(m => m.LastName, new { @class = "col-md-12 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col">
+                        @Html.LabelFor(m => m.Age, new { @class = "col-md-12 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row mt-3">
+                    <div class="col">
+                        @Html.LabelFor(m => m.Gender, new { @class = "col-md-12 control-label" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(m => m.Gender, new SelectList(Enum.GetValues(typeof(UniversityWebsite.Models.Gender))),"Select Gender", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col">
+                        @Html.LabelFor(m => m.ContactNumber, new { @class = "col-md-12 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-12 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row mt-3">
+                    <div class="col">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-12 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-12 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row mt-3">
+                    <div class="col">
+                        <div class="col-md-10">
+                            <input type="submit" id="register" class="btn" value="Register" style="background-color: #ed1e28; color: white;" />
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(".form").focusin(function () {
+            $(".alert").remove();
+        });
+    </script>    
+}
